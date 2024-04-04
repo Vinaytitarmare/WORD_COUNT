@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string filename;
+    cout << "\n\n\n\n\n---------File Handling---------\n\n";
+    int n = 0;
+    while (n < 10)
+    {
+        cout << "Enter the filename: " << endl;
+        cin >> filename;
+
+        ifstream inputFile(filename);
+        if (inputFile.is_open())
+        {
+            string word;
+            int wordCount = 0;
+            while (inputFile >> word)
+            {
+                wordCount++;
+            }
+            cout << "Number of words in the file: \n" << wordCount << endl;
+            inputFile.close();
+        }
+        else
+        {
+            cout << "Failed to open the file.\n" << endl;
+        }
+        n++;
+        cout<<"-------------------------------------\n\n";
+    }
+
+    return 0;
+}
